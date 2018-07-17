@@ -250,14 +250,14 @@ def H_LUT(view_sun, angle):
     x = 2
     #view_sun = 1.0e-10
   else:
-    x = np.floor(view_sun/np.pi*dim)
+    x = int(np.floor(view_sun/np.pi*dim))
   if isinstance(angle, np.ndarray):
     h = np.zeros_like(angle)
     for i, a in enumerate(angle):
-      y = np.floor(a/np.pi*dim)
+      y = int(np.floor(a/np.pi*dim))
       h[i] = lut[y,x]
   else:
-    y = np.floor(angle/np.pi*dim)
+    y = int(np.floor(angle/np.pi*dim))
     h = lut[y,x]
   return h
 
